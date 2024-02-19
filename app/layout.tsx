@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Darkmode from "@providers/Darkmode";
+import Navbar from "@/components/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +19,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className=" h-40 w-40 bg-red-600" />
-        {children}</body>
+      <Darkmode attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+        <Navbar/>
+        {children}
+      </Darkmode>
+      </body>
     </html>
   );
 }

@@ -19,7 +19,8 @@
     ],
     "paths": {
       "@/*": ["./*"],
-      "@image/*": ["./images/*"]
+      "@image/*": ["./images/*"],
+      "@providers/*": ["./services/providers/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
