@@ -98,7 +98,7 @@ const testimonial : Testimonial[] = [
 ] as const;
 
 export default function Home() {
-  console.log(pi)
+  console.log(pi * 2)
   return (
     <div>
       <section className="h-screen bg-[#f2faf7] dark:bg-inherit flex items-center -translate-y-12 justify-center ">
