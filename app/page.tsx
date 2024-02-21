@@ -24,7 +24,7 @@ type Testimonial = {
   testimonial: string;
 };
 
-const coreofferings: Readonly<Coreoffering[]> = [
+const coreofferings: Coreoffering[] = [
   { icon: <Bot />, offeringName: "Mental Wellness Companion" },
   { icon: <Bike />, offeringName: "Physical Well-being Hub" },
   { icon: <Network />, offeringName: "Therapeutic Connections" },
@@ -35,7 +35,7 @@ const coreofferings: Readonly<Coreoffering[]> = [
 // check
 const pi : number = 3.14 ;
 
-const directory: Readonly<Directory[]> = [
+const directory: Directory[] = [
   {
     src: "https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/external-dumbell-healthy-wanicon-lineal-color-wanicon.png",
     title: "Fitness Challenges",
@@ -69,7 +69,7 @@ const directory: Readonly<Directory[]> = [
 ] as const;
 
 
-const testimonial : Readonly<Testimonial[]> = [
+const testimonial : Testimonial[] = [
   {
     user: {
       name: "Alice Johnson",
