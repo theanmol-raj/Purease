@@ -32,6 +32,8 @@ const coreofferings: Readonly<Coreoffering[]> = [
   { icon: <UserRound />, offeringName: "Engaging Lifestyle Content" },
   { icon: <AudioLines />, offeringName: "Progress Tracking and Motivation" },
 ] as const;
+// check
+const pi : number = 3.14 ;
 
 const directory: Readonly<Directory[]> = [
   {
@@ -96,6 +98,7 @@ const testimonial : Readonly<Testimonial[]> = [
 ] as const;
 
 export default function Home() {
+  console.log(pi)
   return (
     <div>
       <section className="h-screen bg-[#f2faf7] dark:bg-inherit flex items-center -translate-y-12 justify-center ">
