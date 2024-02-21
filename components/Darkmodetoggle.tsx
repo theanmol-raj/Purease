@@ -16,11 +16,8 @@ function Darkmodetoggle({}: Props) {
    function handleChange(){
     ref.current?.ariaChecked === 'true' ? setTheme('light') : setTheme('dark')
    }
-  return (
-    <div>
-        <Switch  onClick={handleChange} ref={ref} />
-    </div>
-  )
+  return  <Switch  onClick={handleChange} ref={ref} /> ;
+
 }
 
 export default Darkmodetoggle

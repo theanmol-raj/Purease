@@ -98,7 +98,7 @@ const testimonial : Readonly<Testimonial[]> = [
 export default function Home() {
   return (
     <div>
-      <section className="h-screen bg-[#f2faf7] dark:bg-[#1f1d1f] flex items-center -translate-y-12 justify-center ">
+      <section className="h-screen bg-[#f2faf7] dark:bg-inherit flex items-center -translate-y-12 justify-center ">
         <div className=" p-4 md:p-8 lg:p-12 w-full max-w-max max-h-max relative ">
           <img
             className=" hidden md:block absolute bg-white rounded-md p-2 animate-spin duration-1000 -bottom-5 left-1/3 h-10"
@@ -228,7 +228,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className=" bg-[#f2faf7] dark:bg-[#1f1d1f] pb-16 dark:pb-24">
+      <section className=" bg-[#f2faf7] dark:bg-black pb-16 dark:pb-24">
         <div className=" max-w-7xl mx-auto py-12 md:pt-24 md:pb-16">
           <p className=" text-center text-2xl">
             Learn How AI can help you with Improving Mental Health?
@@ -304,10 +304,10 @@ export default function Home() {
           </p>
         </div>
         <div className=" flex flex-row mx-auto max-w-max gap-4">
-          {testimonial.map((item : Testimonial) => (<div key={item.user.name} className="flex  items-center justify-center  bg-white dark:bg-gray-950">
+          {testimonial.map((item : Testimonial) => (<div key={item.user.name} className="flex  items-center justify-center  bg-white dark:bg-inherit">
             <div className="max-w-md rounded-3xl p-px bg-gradient-to-b h-full from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
-              <div className="rounded-[calc(1.5rem-1px)] p-10 bg-white h-full dark:bg-gray-900">
-                <p className="text-gray-700 dark:text-gray-300">
+              <div className="rounded-[calc(1.5rem-1px)] p-10 bg-white h-full dark:bg-inherit">
+                <p className="text-gray-700 dark:text-white">
                   {item.testimonial}
                 </p>
 

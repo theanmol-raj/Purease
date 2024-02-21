@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import Darkmodetoggle from "./Darkmodetoggle";
+import Userdropdown from "./Userdropdown";
 
 type Navitem = { navitem: string; href: string }
 type Navitems = Readonly<(Navitem)[]>;
@@ -35,6 +36,7 @@ export default function Navbar() {
         <div className="hidden md:flex  items-center space-x-6 text-sm">
             {navitems.map((item : Navitem) => <Link href={item.href} key={item.navitem}>{item.navitem}</Link>)}
             <Darkmodetoggle />
+            <Userdropdown/>
         </div>
       </div>
     </div>
