@@ -31,15 +31,21 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import Useravatar from "./Useravatar"
+import { Session } from "next-auth"
+import { signIn, signOut } from "next-auth/react"
 
-export default function Userdropdown() {
+export default function Userdropdown({session} : {session : Session | null}) {
+  if(!session) {
+    return <Button onClick={()=> signIn('google')} variant={'ghost'}>Sign In</Button>
+  }
+
   return (
     <DropdownMenu>
       <DropdownMenuTrigger>
-        <Useravatar />
+        <Useravatar name={session.user?.name} image={session.user?.image}  />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+        <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem>
@@ -112,7 +118,7 @@ export default function Userdropdown() {
           <span>API</span>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={()=>signOut()}>
           <LogOut className="mr-2 h-4 w-4" />
           <span>Log out</span>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>

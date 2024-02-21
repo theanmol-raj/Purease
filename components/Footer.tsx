@@ -1,5 +1,6 @@
 import { FacebookIcon, Instagram, Twitter } from 'lucide-react'
 import React from 'react'
+import Logo from './Logo'
 
 type Props = {}
 
@@ -10,7 +11,7 @@ function Footer({}: Props) {
   <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 sm:pt-24 lg:px-8 lg:pt-32">
     <div className="xl:grid xl:grid-cols-3 xl:gap-8">
       <div className="space-y-8">
-        <p>My logo goes here</p>
+        <Logo/>
         {/* <img className="h-20" src="https://aaah0mnbncqtinas.public.blob.vercel-storage.com/FX5ATkass4-no-background-VmcZHSX7xE4ng29ATNphGUdb388fxH.png" alt="Company name" /> */}
         <p className="text-sm leading-6 text-gray-600 dark:text-gray-200">Elysian Horizon: Where Mind & Body Embrace Serenity</p>
         <div className="flex space-x-6">

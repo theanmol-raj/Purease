@@ -24,7 +24,7 @@ type Testimonial = {
   testimonial: string;
 };
 
-const coreofferings: Coreoffering[] = [
+const coreofferings: Readonly<Coreoffering[]> = [
   { icon: <Bot />, offeringName: "Mental Wellness Companion" },
   { icon: <Bike />, offeringName: "Physical Well-being Hub" },
   { icon: <Network />, offeringName: "Therapeutic Connections" },
@@ -32,10 +32,8 @@ const coreofferings: Coreoffering[] = [
   { icon: <UserRound />, offeringName: "Engaging Lifestyle Content" },
   { icon: <AudioLines />, offeringName: "Progress Tracking and Motivation" },
 ] as const;
-// check
-const pi : number = 3.14 ;
 
-const directory: Directory[] = [
+const directory: Readonly<Directory[]> = [
   {
     src: "https://img.icons8.com/external-wanicon-lineal-color-wanicon/64/external-dumbell-healthy-wanicon-lineal-color-wanicon.png",
     title: "Fitness Challenges",
@@ -69,7 +67,7 @@ const directory: Directory[] = [
 ] as const;
 
 
-const testimonial : Testimonial[] = [
+const testimonial : Readonly<Testimonial[]> = [
   {
     user: {
       name: "Alice Johnson",
@@ -98,7 +96,6 @@ const testimonial : Testimonial[] = [
 ] as const;
 
 export default function Home() {
-  console.log(pi * 2)
   return (
     <div>
       <section className="h-screen bg-[#f2faf7] dark:bg-inherit flex items-center -translate-y-12 justify-center ">
@@ -306,7 +303,7 @@ export default function Home() {
             {`Countless individuals have embraced Purease as a daily ritual. Hear firsthand what they have to share about their experiences!`}
           </p>
         </div>
-        <div className=" flex flex-row mx-auto max-w-max gap-4">
+        <div className=" flex flex-col md:flex-row mx-auto max-w-max gap-4">
           {testimonial.map((item : Testimonial) => (<div key={item.user.name} className="flex  items-center justify-center  bg-white dark:bg-inherit">
             <div className="max-w-md rounded-3xl p-px bg-gradient-to-b h-full from-blue-300 to-pink-300 dark:from-blue-800 dark:to-purple-800 ">
               <div className="rounded-[calc(1.5rem-1px)] p-10 bg-white h-full dark:bg-inherit">
