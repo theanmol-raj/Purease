@@ -13,22 +13,23 @@ type Navitems = Readonly<(Navitem)[]>;
 const navitems: Navitems = [
   { navitem: "Sage", href: "/" },
   { navitem: "About Us", href: "/" },
-  { navitem: "Pricing", href: "/" },
+  { navitem: "Pricing", href: "/pricing" },
   { navitem: "Blog", href: "/" },
   { navitem: "Responsible Ai", href: "/" },
   { navitem: "Tests", href: "/" },
 ] as const ;
 
 export default function Navbar({session} :{session :Session | null}) {
-  const [isFixed ,setIsFixed] = useState<boolean>(false);
+  
+  const [isFixed ,setIsFixed] = useState<boolean>(!!(window?.scrollY>100));
 
   const transitionNavbar = ():void => {
     window.scrollY>100 ? setIsFixed(true) : setIsFixed(false);
   }
   
   useEffect(()=>{
-    window.addEventListener('scroll' ,transitionNavbar)
-    return () => window.removeEventListener('scroll' ,transitionNavbar)
+    window.addEventListener('scroll' ,transitionNavbar) ;
+    return () => window.removeEventListener('scroll' ,transitionNavbar) ;
   },[]);
   
 
@@ -41,6 +42,9 @@ export default function Navbar({session} :{session :Session | null}) {
             <Darkmodetoggle />
             <Userdropdown session={session} />
         </div>
+
+
+
       </div>
     </div>
   );

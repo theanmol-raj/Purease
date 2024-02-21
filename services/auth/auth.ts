@@ -1,5 +1,4 @@
 import { adminAuth, adminDb } from "@/utils/firebase-admin";
-// import { FirestoreAdapter } from "@next-auth/firebase-adapter";
 import { NextAuthOptions } from "next-auth";
 import GoogleProviders from "next-auth/providers/google";
 

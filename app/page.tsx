@@ -329,23 +329,7 @@ export default function Home() {
               </div>
             </div>
           </div>))}
-          
-          {/* {loveHir.map((item: any, index: number) => (
-            <div key={index} className="p-4 border space-y-2 rounded-md md:p-8">
-              <div className="p-4 rounded-lg text-purple-500 border  max-w-max mx-auto">
-                {item.i}
-              </div>
-              <p className=" text-sm font-medium leading-4 text-center">
-                {item.t}
-              </p>
-              <p className=" text-xs text-center">{item.d}</p>
-              <p className=" font-light text-xs text-center">
-                Read More
-              </p>
-            </div>
-          ))} */}
         </div>
-        {/*  */}
       </section>
     </div>
   );
