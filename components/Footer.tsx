@@ -1,10 +1,15 @@
+'use client'
 import { FacebookIcon, Instagram, Twitter } from 'lucide-react'
 import React from 'react'
 import Logo from './Logo'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 type Props = {}
 
 function Footer({}: Props) {
+  const pathname = usePathname();
+  if (pathname.includes('content-lake')) return <></>;
   return (
     <footer className="bg-[#f2faf7] dark:bg-black" aria-labelledby="footer-heading">
   <h2 id="footer-heading" className="sr-only">Footer</h2>
@@ -15,15 +20,15 @@ function Footer({}: Props) {
         {/* <img className="h-20" src="https://aaah0mnbncqtinas.public.blob.vercel-storage.com/FX5ATkass4-no-background-VmcZHSX7xE4ng29ATNphGUdb388fxH.png" alt="Company name" /> */}
         <p className="text-sm leading-6 text-gray-600 dark:text-gray-200">Elysian Horizon: Where Mind & Body Embrace Serenity</p>
         <div className="flex space-x-6">
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          <Link href="#" className="text-gray-400 hover:text-gray-500">
             <FacebookIcon/>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          </Link>
+          <Link href="#" className="text-gray-400 hover:text-gray-500">
             <Instagram/>
-          </a>
-          <a href="#" className="text-gray-400 hover:text-gray-500">
+          </Link>
+          <Link href="#" className="text-gray-400 hover:text-gray-500">
             <Twitter/>
-          </a>
+          </Link>
           
         </div>
       </div>
@@ -33,22 +38,22 @@ function Footer({}: Props) {
             <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Mental Health</h3>
             <ul role="list" className="mt-6 space-y-4">
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Chakra Test</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Chakra Test</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">OCEAN Test</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">OCEAN Test</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">RIASEC Test</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">RIASEC Test</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Childhood Trauma Test</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Childhood Trauma Test</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Advance Personality Test</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Advance Personality Test</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Procastination Test</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Procastination Test</Link>
               </li>
             </ul>
           </div>
@@ -56,16 +61,16 @@ function Footer({}: Props) {
             <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Physical Health</h3>
             <ul role="list" className="mt-6 space-y-4">
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Diets & Recipes</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Diets & Recipes</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Yoga & Workouts</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Yoga & Workouts</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Meditation </a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Meditation </Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Breathing Exercises</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Breathing Exercises</Link>
               </li>
             </ul>
           </div>
@@ -75,22 +80,22 @@ function Footer({}: Props) {
             <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Company</h3>
             <ul role="list" className="mt-6 space-y-4">
             <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Pricing</a>
+                <Link href="/pricing" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Pricing</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Guides</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Guides</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">AI Status</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">AI Status</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">About</a>
+                <Link href="/about-us" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">About</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Blog</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Blog</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Press</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Press</Link>
               </li>
             </ul>
           </div>
@@ -98,13 +103,13 @@ function Footer({}: Props) {
             <h3 className="text-sm font-semibold leading-6 text-gray-900 dark:text-white">Legal</h3>
             <ul role="list" className="mt-6 space-y-4">
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Claim</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Claim</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Privacy</a>
+                <Link href="/legal/privacy-policy" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Privacy</Link>
               </li>
               <li>
-                <a href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Terms</a>
+                <Link href="#" className="text-sm leading-6 text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-50">Terms</Link>
               </li>
             </ul>
           </div>

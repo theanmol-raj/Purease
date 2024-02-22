@@ -6,31 +6,35 @@ import Userdropdown from "./Userdropdown";
 import Logo from "./Logo";
 import { getSession, useSession } from "next-auth/react";
 import { Session } from "next-auth";
+import { usePathname } from "next/navigation";
 
 type Navitem = { navitem: string; href: string }
 type Navitems = Readonly<(Navitem)[]>;
 
 const navitems: Navitems = [
   { navitem: "Sage", href: "/" },
-  { navitem: "About Us", href: "/" },
+  { navitem: "About Us", href: "/about-us" },
   { navitem: "Pricing", href: "/pricing" },
-  { navitem: "Blog", href: "/" },
+  { navitem: "Blog", href: "/blog" },
   { navitem: "Responsible Ai", href: "/" },
-  { navitem: "Tests", href: "/" },
+  { navitem: "Tests", href: "/test" },
 ] as const ;
 
 export default function Navbar({session} :{session :Session | null}) {
   
-  const [isFixed ,setIsFixed] = useState<boolean>(!!(window?.scrollY>100));
+  const [isFixed ,setIsFixed] = useState<boolean>(false);
 
   const transitionNavbar = ():void => {
     window.scrollY>100 ? setIsFixed(true) : setIsFixed(false);
   }
   
+  
   useEffect(()=>{
     window.addEventListener('scroll' ,transitionNavbar) ;
     return () => window.removeEventListener('scroll' ,transitionNavbar) ;
   },[]);
+  const pathname = usePathname();
+  if (pathname.includes('content-lake')) return <></>;
   
 
   return (

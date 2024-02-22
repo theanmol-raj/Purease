@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { authOptions } from "@/services/auth/auth";
 import {
   AudioLines,
   Bike,
@@ -10,7 +11,9 @@ import {
   Triangle,
   UserRound,
 } from "lucide-react";
+import { getServerSession } from "next-auth";
 import Image from "next/image";
+import { redirect } from "next/navigation";
 import { ReactElement } from "react";
 
 type Coreoffering = { icon: ReactElement; offeringName: string };
@@ -95,7 +98,9 @@ const testimonial : Readonly<Testimonial[]> = [
   // Add more testimonials as needed
 ] as const;
 
-export default function Home() {
+export default async function Home() {
+  const session = await getServerSession(authOptions)
+
   return (
     <div>
       <section className="h-screen bg-[#f2faf7] dark:bg-inherit flex items-center -translate-y-12 justify-center ">
@@ -222,7 +227,7 @@ export default function Home() {
                 Confidential communication space
               </p>
             </div>
-            <button className=" flex bg-[#23fed6] p-2 px-6 rounded-md mt-4 text-white">
+            <button className=" flex bg-[#23fed6] p-2 px-6 rounded-md mt-4 text-white dark:text-black">
               Chat with Sage
             </button>
           </div>
