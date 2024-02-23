@@ -34,7 +34,7 @@ export default function Navbar({session} :{session :Session | null}) {
     return () => window.removeEventListener('scroll' ,transitionNavbar) ;
   },[]);
   const pathname = usePathname();
-  if (pathname.includes('content-lake')) return <></>;
+  if (pathname?.includes('content-lake')) return <></>;
   
 
   return (

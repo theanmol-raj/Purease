@@ -11,12 +11,12 @@ async function page({}) {
         categories[]->{
           title
         },slug,
-        title,publishedAt,_id,mainImage,author->
+        title,publishedAt,description,_id,mainImage,author->
       } `);
 
   return (
     <div className=" max-w-7xl mx-auto py-8 md:py-12 lg:py-20">
-      <section className="bg-white dark:bg-gray-900">
+      <section className="bg-white dark:bg-inherit">
         <div className="py-8 px-4 mx-auto max-w-screen-xl ">
           <div className="mx-auto max-w-screen-sm text-center lg:mb-16 mb-8">
             <h2 className="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">
@@ -34,7 +34,7 @@ async function page({}) {
             {posts?.map((post: Post) => (
               <article
                 key={post?._id}
-                className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700"
+                className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-black dark:border-gray-700"
               >
                 <div className="flex justify-between items-center mb-5 text-gray-500">
                   <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">{post.categories[0].title}</span>
@@ -48,6 +48,7 @@ async function page({}) {
                     {post?.title}
                   </Link>
                 </h2>
+                <p className=" truncate pb-2">{post.description}</p>
                 
                 <div className="flex justify-between items-center">
                   <div className="flex items-center space-x-4">
