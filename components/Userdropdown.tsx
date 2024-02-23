@@ -33,6 +33,9 @@ import {
 import Useravatar from "./Useravatar"
 import { Session } from "next-auth"
 import { signIn, signOut } from "next-auth/react"
+import Darkmodetoggle from "./Darkmodetoggle"
+import { useState } from "react"
+import { useTheme } from "next-sanity/studio"
 
 export default function Userdropdown({session} : {session : Session | null}) {
   if(!session) {
@@ -41,10 +44,15 @@ export default function Userdropdown({session} : {session : Session | null}) {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger>
+      <div className=" flex items-center justify-between">
+      <DropdownMenuTrigger className=" flex space-x-2 md:space-x-0 items-center">
         <Useravatar name={session.user?.name} image={session.user?.image}  />
+        <div className="md:hidden">
+          <p>{session.user?.name}</p>
+        </div>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="w-56">
+      </div>
+      <DropdownMenuContent className=" bg-white dark:bg-black w-full translate-x-6">
         <DropdownMenuLabel>{session.user?.name}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuGroup>

@@ -1,5 +1,6 @@
 import { client } from "@/sanity/lib/client";
 import { urlForImage } from "@/sanity/lib/image";
+import { generateDate } from "@/utils/helpers";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -39,12 +40,12 @@ async function page({}) {
                 <div className="flex justify-between items-center mb-5 text-gray-500">
                   <span className="bg-primary-100 text-primary-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded dark:bg-primary-200 dark:text-primary-800">{post.categories[0].title}</span>
                   <span className="text-sm">
-                    {new Date(post.publishedAt).toLocaleString()}
+                    {generateDate(post?.publishedAt!)}
                   </span>
                 </div>
                 <img src={urlForImage(post?.mainImage)} alt="" className=" rounded-md" />
                 <h2 className="mb-2 text-2xl font-bold tracking-tight pt-4 text-gray-900 dark:text-white">
-                  <Link href={`/blog/${post?.slug?.current}`}>
+                  <Link prefetch={false} href={`/blog/${post?.slug?.current}`}>
                     {post?.title}
                   </Link>
                 </h2>
@@ -61,8 +62,8 @@ async function page({}) {
                       {post.author.name}
                     </span>
                   </div>
-                  <a
-                    href="#"
+                  <Link prefetch={false}
+                    href={`/blog/${post?.slug?.current}`}
                     className="inline-flex items-center font-medium text-primary-600 dark:text-primary-500 hover:underline"
                   >
                     Read more
@@ -78,7 +79,7 @@ async function page({}) {
                         clip-rule="evenodd"
                       ></path>
                     </svg>
-                  </a>
+                  </Link>
                 </div>
               </article>
             ))}

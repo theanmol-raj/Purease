@@ -7,6 +7,7 @@ import {PortableText, PortableTextComponents} from '@portabletext/react'
 import { urlForImage } from '@/sanity/lib/image';
 import {getImageDimensions} from '@sanity/asset-utils'
 import urlBuilder from '@sanity/image-url';
+import { generateDate } from '@/utils/helpers';
 
 const SampleImageComponent = ({value, isInline} :any) => {
     const {width, height} = getImageDimensions(value)
@@ -102,21 +103,7 @@ async function page({ params: { id } }: { params: { id: string } }) {
       );
     
       if (!post) return <h1>BUilding</h1>
-      let date = new Date(post?.publishedAt!);
-      let out =
-        date.toLocaleString("en-GB", {
-          weekday: "long",
-          day: "numeric",
-          month: "long",
-        }) +
-        " " +
-        new Intl.DateTimeFormat("en-GB", {
-          hour12: true,
-          hour: "numeric",
-          minute: "numeric",
-        }).format(date);
-
-        console.log(post)
+      
         
 
 
@@ -134,7 +121,7 @@ async function page({ params: { id } }: { params: { id: string } }) {
                 by {post?.author.name} {post?.author.isAi && <span className=" text-xs mx-2 bg-[#23fed6] dark:text-black text-white px-2 py-1 rounded-sm">Coach</span>} | 
               </p>
               <p className=" text-gray-500 pt-2 flex items-center space-x-4 font-light  text-base">
-                {out} | 
+                {generateDate(post?.publishedAt!)} | 
               </p>
               <p className=" text-gray-500 pt-2 flex items-center space-x-4 font-light  text-base">
                 {/* <StarIcon fontSize="inherit" /> */}

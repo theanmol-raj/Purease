@@ -20,7 +20,7 @@ function Darkmodetoggle({}: Props) {
    function handleChange(){
     ref.current?.ariaChecked === 'true' ? setTheme('light') : setTheme('dark');
    }
-  return (<Switch onClick={handleChange} ref={ref} />); 
+  return (<Switch  onClick={handleChange} ref={ref} /> ); 
 
 }
 
