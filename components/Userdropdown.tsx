@@ -7,6 +7,7 @@ import {
   LogOut,
   Mail,
   MessageSquare,
+  MoreVertical,
   Plus,
   PlusCircle,
   Settings,
@@ -14,8 +15,6 @@ import {
   UserPlus,
   Users,
 } from "lucide-react"
-
-import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,20 +35,25 @@ import { signIn, signOut } from "next-auth/react"
 import Darkmodetoggle from "./Darkmodetoggle"
 import { useState } from "react"
 import { useTheme } from "next-sanity/studio"
+import Link from "next/link"
 
 export default function Userdropdown({session} : {session : Session | null}) {
   if(!session) {
-    return <Button onClick={()=> signIn('google')} variant={'ghost'}>Sign In</Button>
+    return <Link href={'/login'} >Sign In</Link>
   }
-
+  // console.log(session)
   return (
     <DropdownMenu>
-      <div className=" flex items-center justify-between">
-      <DropdownMenuTrigger className=" flex space-x-2 md:space-x-0 items-center">
+      <div className=" flex items-center justify-between w-full ">
+      <DropdownMenuTrigger className=" flex space-x-2 items-center w-full">
+        <div className=" flex items-center space-x-2 w-full">
         <Useravatar name={session.user?.name} image={session.user?.image}  />
-        <div className="md:hidden">
-          <p>{session.user?.name}</p>
+        <div className="leading-4 text-left">
+              <h4 className="font-semibold">{session?.user.name}</h4>
+              <span className="text-xs text-gray-600">{session?.user.email}</span>
         </div>
+        </div>
+        <MoreVertical size={20} />
       </DropdownMenuTrigger>
       </div>
       <DropdownMenuContent className=" bg-white dark:bg-black w-full translate-x-6">

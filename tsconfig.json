@@ -20,10 +20,10 @@
     "paths": {
       "@/*": ["./*"],
       "@image/*": ["./images/*"],
-      "@providers/*": ["./services/providers/*"]
+      "@providers/*": ["./services/providers/*"],
     },
     "target": "ES2017"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts","src/middleware.ts"],
   "exclude": ["node_modules"]
 }

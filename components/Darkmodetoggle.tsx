@@ -3,24 +3,25 @@
 
 import { Switch } from "@/components/ui/switch"
 import { useTheme } from "next-themes";
-import { ElementRef, useEffect, useRef } from "react"
+import { ElementRef, useEffect, useRef, useState } from "react"
 
 type Props = {}
 
 function Darkmodetoggle({}: Props) {
 
-
+  const [loading ,setLoading] = useState<boolean>(true)
    const ref = useRef<ElementRef<typeof Switch>>(null) ;
 
    const {theme ,setTheme} = useTheme() ;
    useEffect(()=>{
-    ref.current?.ariaChecked === 'true' ? setTheme('dark') : setTheme('light');
+     setTheme('dark') ;
+     setLoading(false)
    },[setTheme])
 
    function handleChange(){
     ref.current?.ariaChecked === 'true' ? setTheme('light') : setTheme('dark');
    }
-  return (<Switch  onClick={handleChange} ref={ref} /> ); 
+  return (<Switch defaultChecked={true}  onClick={handleChange} ref={ref} /> ); 
 
 }
 

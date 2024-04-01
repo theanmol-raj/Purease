@@ -7,17 +7,16 @@ import Logo from "./Logo";
 import { getSession, useSession } from "next-auth/react";
 import { Session } from "next-auth";
 import { usePathname } from "next/navigation";
-import NavDropDown from "./NavDropDown";
 
 export type Navitem = { navitem: string; href: string }
 type Navitems = Readonly<(Navitem)[]>;
 
 export const navitems: Navitems = [
-  { navitem: "Sage", href: "/" },
+  { navitem: "Sage", href: "/sage" },
   { navitem: "About Us", href: "/about-us" },
   { navitem: "Pricing", href: "/pricing" },
   { navitem: "Blog", href: "/blog" },
-  { navitem: "Responsible Ai", href: "/" },
+  { navitem: "Communities", href: "/Communities" },
   { navitem: "Tests", href: "/test" },
 ] as const ;
 
@@ -34,8 +33,11 @@ export default function Navbar({session} :{session :Session | null}) {
     window.addEventListener('scroll' ,transitionNavbar) ;
     return () => window.removeEventListener('scroll' ,transitionNavbar) ;
   },[]);
+
   const pathname = usePathname();
-  if (pathname?.includes('content-lake')) return <></>;
+  if (pathname?.includes('content-lake') || pathname?.includes('sage') || pathname?.includes('login')) return <></>;
+  // if(session) return <></>
+  
   
 
   return (
@@ -51,7 +53,6 @@ export default function Navbar({session} :{session :Session | null}) {
               <Userdropdown session={session} />
             </div>
             <div className="md:hidden">
-            <NavDropDown session={session} />
             </div>
         </div>
 

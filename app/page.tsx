@@ -17,7 +17,7 @@ import { redirect } from "next/navigation";
 import { ReactElement } from "react";
 
 type Coreoffering = { icon: ReactElement; offeringName: string };
-type Directory = { src: string; title: string; amount: number };
+export type Directory = { src: string; title: string; amount: number };
 type Testimonial = {
   user: {
     name: string;
@@ -100,7 +100,8 @@ const testimonial : Readonly<Testimonial[]> = [
 
 export default async function Home() {
   const session = await getServerSession(authOptions)
-  if(session) redirect('/hub');
+  if(session) redirect('/sage');
+  
 
   return (
     <div>
@@ -179,7 +180,7 @@ export default async function Home() {
         </div>
         <div className=" grid grid-cols-1 gap-4 md:gap-5 lg:gap-6 md:grid-cols-2 max-w-5xl mx-auto pb-12 md:pb-24">
           <div className=" relative">
-            <button className=" text-[#23fed6] shadow-xl border p-8 rounded-full absolute z-10 bg-white rotate-90 right-5 top-5">
+            <button className=" text-[#23fed6] shadow-xl border dark:border-white p-8 rounded-full absolute z-10 bg-white rotate-90 right-5 top-5">
               <Triangle fill="#23fed6" size={16} />
             </button>
             <img
@@ -194,7 +195,7 @@ export default async function Home() {
           <div>
             <p className=" text-2xl font-semibold tracking-wide">
               Meet Sage.{" "}
-              <span className=" text-xs bg-[#23fed6] text-white px-2 py-1 rounded-sm">
+              <span className=" text-xs bg-[#23fed6] text-white dark:text-black px-2 py-1 rounded-sm">
                 Your Coach
               </span>
             </p>
@@ -290,7 +291,7 @@ export default async function Home() {
             </div>
           </div>
           <div className=" relative">
-            <button className=" text-purple-500 shadow-xl border p-8 rounded-full absolute z-10 bg-white rotate-90 right-5 top-5">
+            <button className=" text-purple-500 shadow-xl dark:border-white border p-8 rounded-full absolute z-10 bg-white rotate-90 right-5 top-5">
               <Triangle fill="#a855f7" size={16} />
             </button>
             <img

@@ -23,21 +23,20 @@ export default async function RootLayout({
   const session = await getServerSession(authOptions);
 
   return (
-    <AuthProvider>
+    
       <html lang="en">
+        <AuthProvider>
         <body className={inter.className}>
           <Darkmode
             attribute="class"
-            defaultTheme="system"
-            enableSystem
+            defaultTheme="dark"
             disableTransitionOnChange
           >
-            <Navbar session={session} />
             {children}
-            <Footer />
           </Darkmode>
         </body>
-      </html>
+      
     </AuthProvider>
+    </html>
   );
 }
