@@ -23,6 +23,7 @@ async function page({}: Props) {
         {/* <source src='/videos/glitter.mp4' type="video/mp4" /> */}
         <source src='/videos/pattern.mp4' type="video/mp4" />
         Your browser does not support the video tag.
+        
       </video>
     </div>
       <div className=' w-full h-full flex flex-col  max-w-3xl mx-auto'>

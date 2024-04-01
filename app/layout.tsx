@@ -31,8 +31,9 @@ export default async function RootLayout({
             attribute="class"
             defaultTheme="dark"
             disableTransitionOnChange
-          >
+          ><Navbar session={session}  />
             {children}
+            <Footer />
           </Darkmode>
         </body>
       
